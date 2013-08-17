@@ -77,7 +77,7 @@ elseif ($hddpercent >= "36") { $hddlevel = "warning"; }
 elseif ($hddpercent <= "35") { $hddlevel = "danger"; }
 
 $array['hdd'] = '<div class="progress progress-striped active">
-<div class="bar bar-'.$hddlevel.'" style="width:'.$hddpercent.'%;">'.round($hddused*0.000000000098,2).'&nbsp;gb</div>
+<div class="bar bar-'.$hddlevel.'" style="width:'.$hddpercent.'%;">'.round($hddused*0.00000000098,2).'&nbsp;gb</div>
 </div>';
 
 $load = sys_getloadavg();

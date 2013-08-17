@@ -12,6 +12,8 @@ while($result = mysql_fetch_array($query)){
 	$("#uptime'.$result["id"].'").html(result.uptime);
 	$("#load'.$result["id"].'").html(result.load);
 	$("#memory'.$result["id"].'").html(result.memory);
+        $("#buff'.$result["id"].'").html(result.buff);
+        $("#swap'.$result["id"].'").html(result.swap);
 	$("#hdd'.$result["id"].'").html(result.hdd);
 	});';
 	$sTable .= '
@@ -27,16 +29,26 @@ while($result = mysql_fetch_array($query)){
 			<td>'.$result["location"].'</td>
 			<td id="uptime'.$result["id"].'">n/a</td>
 			<td id="load'.$result["id"].'">n/a</td>
-			<td id="memory'.$result["id"].'">
-				<div class="progress progress-striped active">
-					<div class="bar bar-danger" style="width: 100%;"><small>n/a</small></div>
-				</div>
-			</td>
-			<td id="hdd'.$result["id"].'">
-				<div class="progress progress-striped active">
-					<div class="bar bar-danger" style="width: 100%;"><small>n/a</small></div>
-				</div>
-			</td>
+                        <td id="memory'.$result["id"].'">
+                                <div class="progress">
+                                        <div class="bar bar-danger" style="width: 100%;"><small>n/a</small></div>
+                                </div>
+                        </td>
+                        <td id="buff'.$result["id"].'">
+                                <div class="progress">
+                                        <div class="bar bar-danger" style="width: 100%;"><small>n/a</small></div>
+                                </div>
+                        </td>
+                        <td id="swap'.$result["id"].'">
+                                <div class="progress">
+                                        <div class="bar bar-danger" style="width: 100%;"><small>n/a</small></div>
+                                </div>
+                        </td>
+                        <td id="hdd'.$result["id"].'">
+                                <div class="progress">
+                                        <div class="bar bar-danger" style="width: 100%;"><small>n/a</small></div>
+                                </div>
+                        </td>
 		</tr>
 	';
 }

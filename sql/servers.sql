@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS `servers` (
   `location` varchar(65) NOT NULL,
   `host` varchar(65) NOT NULL,
   `type` varchar(65) NOT NULL,
+  `link` varchar(65) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 

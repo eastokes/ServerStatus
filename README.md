@@ -1,6 +1,6 @@
 # ServerStatus
 ============
-**EASTOKES NOTE: Updated to add MEM / BUFFER / SWAP info, a link to control panel (you need to add column to database), and reversed the bar fill to show used instead of free.**
+**EASTOKES NOTE: Updated to add MEM / BUFFER / SWAP info, a link to control panel (you need to add a 'link' column to your database if you earlier imported mojeda's sql file), and reversed the bar fill to show used instead of free.**
 
 ServerStatus is based off [BlueVM's](http://uptime.bluevm.com/) Uptime Checker script, [original download and information](http://www.lowendtalk.com/discussion/comment/169690#Comment_169690).
 

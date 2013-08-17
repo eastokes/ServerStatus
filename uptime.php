@@ -50,14 +50,14 @@ $array['memory'] = '<div class="progress progress-striped active">
 </div>';
 
 $buffused = $memtotal - $memfree;
-$buffpercent = $buffused / $memtotal * 100;
+$buffpercent = round($buffused / $memtotal * 100);
 
 $array['buff'] = '<div class="progress progress-striped active">
 <div class="bar bar-'.$memlevel.'" style="width:'.$buffpercent.'%;">'.round($buffused/1000).'&nbsp;mb</div>
 </div>';
 
 $swapused = $swaptotal - $swapfree;
-$swapperect = $swapused / $swaptotal * 100;
+$swapperect = round($swapused / $swaptotal * 100);
 
 if ($swapperect >= "75") { $swaplevel = "danger"; }
 elseif ($swapperect >= "36") { $swaplevel = "warning"; }
@@ -70,7 +70,7 @@ $array['swap'] = '<div class="progress progress-striped active">
 $hddtotal = disk_total_space("/");
 $hddfree = disk_free_space("/");
 $hddused = $hddtotal - $hddfree;
-$hddpercent = $hddused / $hddtotal * 100;
+$hddpercent = round($hddused / $hddtotal * 100);
 
 if ($hddpercent >= "75") { $hddlevel = "success"; }
 elseif ($hddpercent >= "36") { $hddlevel = "warning"; }

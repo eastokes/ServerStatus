@@ -49,7 +49,7 @@ $array['memory'] = '<div class="progress progress-striped active">
 <div class="bar bar-'.$memlevel.'" style="width:'.$memprecent.'%;">'.round($memused/1000).'&nbsp;mb</div>
 </div>';
 
-$buffused = $memtotal - $memfree;
+$buffused = $memtotal - $memfree - $memused;
 $buffpercent = round($buffused / $memtotal * 100);
 
 $array['buff'] = '<div class="progress progress-striped active">

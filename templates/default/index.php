@@ -27,7 +27,7 @@
 			<tr>
                                 <th id="status" style="text-align: center;">Status</th>
                                 <th id="name">Name</th>
-                                <th id="type">Stats</th>
+                                <th id="type">Type</th>
                                 <th id="host">Host</th>
                                 <th id="location">Location</th>
                                 <th id="uptime">Uptime</th>

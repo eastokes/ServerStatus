@@ -45,7 +45,7 @@
 	</div>
 	
 	<div class="container">
-		<p style="text-align: center; font-size: 10px;"><a href="https://github.com/mojeda/ServerStatus">ServerStatus</a> by <a href="http://www.mojeda.com">Michael Ojeda</a></p>
+		<p style="text-align: center; font-size: 10px;"><a href="https://github.com/mojeda/ServerStatus">ServerStatus</a> by <a href="http://www.mojeda.com">Michael Ojeda</a>, modified by <a href="https://github.com/eastokes/ServerStatus/">eastokes</a></p>
 	</div>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>

@@ -72,9 +72,9 @@ $hddfree = disk_free_space("/");
 $hddused = $hddtotal - $hddfree;
 $hddpercent = round($hddused / $hddtotal * 100);
 
-if ($hddpercent >= "75") { $hddlevel = "success"; }
+if ($hddpercent >= "75") { $hddlevel = "danger"; }
 elseif ($hddpercent >= "36") { $hddlevel = "warning"; }
-elseif ($hddpercent <= "35") { $hddlevel = "danger"; }
+elseif ($hddpercent <= "35") { $hddlevel = "success"; }
 
 $array['hdd'] = '<div class="progress progress-striped active">
 <div class="bar bar-'.$hddlevel.'" style="width:'.$hddpercent.'%;">'.round($hddused*0.00000000098,2).'&nbsp;gb</div>

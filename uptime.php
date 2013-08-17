@@ -27,35 +27,57 @@ $fh = fopen('/proc/meminfo', 'r');
     }
     if (preg_match('/^Cached:\s+(\d+)\skB$/', $line, $pieces)) {
       $memcache = $pieces[1];
-      break;
+    }
+    if (preg_match('/^SwapTotal:\s+(\d+)\skB$/', $line, $pieces)) {
+      $swaptotal = $pieces[1];
+    }
+    if (preg_match('/^SwapFree:\s+(\d+)\skB$/', $line, $pieces)) {
+      $swapfree = $pieces[1];
+    break;
     }
   }
 fclose($fh);
 
-$memmath = $memcache + $memfree;
-$memmath2 = $memmath / $memtotal * 100;
-$memory = round($memmath2) . '%';
+$memused = $memtotal - ($memcache + $memfree);
+$memprecent = $memused / $memtotal * 100;
 
-if ($memory >= "51%") { $memlevel = "success"; }
-elseif ($memory <= "50%") { $memlevel = "warning"; }
-elseif ($memory <= "35%") { $memlevel = "danger"; }
+if ($memprecent >= "75") { $memlevel = "danger"; }
+elseif ($memprecent >= "36") { $memlevel = "warning"; }
+elseif ($memprecent <= "35") { $memlevel = "success"; }
 
 $array['memory'] = '<div class="progress progress-striped active">
-<div class="bar bar-'.$memlevel.'" style="width: '.$memory.';">'.$memory.'</div>
+<div class="bar bar-'.$memlevel.'" style="width:'.$memprecent.'%;">'.round($memused/1000).'&nbsp;mb</div>
+</div>';
+
+$buffused = $memtotal - $memfree;
+$buffpercent = $buffused / $memtotal * 100;
+
+$array['buff'] = '<div class="progress progress-striped active">
+<div class="bar bar-'.$memlevel.'" style="width:'.$buffpercent.'%;">'.round($buffused/1000).'&nbsp;mb</div>
+</div>';
+
+$swapused = $swaptotal - $swapfree;
+$swapperect = $swapused / $swaptotal * 100;
+
+if ($swapperect >= "75") { $swaplevel = "danger"; }
+elseif ($swapperect >= "36") { $swaplevel = "warning"; }
+elseif ($swapperect <= "35") { $swaplevel = "success"; }
+
+$array['swap'] = '<div class="progress progress-striped active">
+<div class="bar bar-'.$swaplevel.'" style="width:'.$swapperect.'%;">'.round($swapused/1000).'&nbsp;mb</div>
 </div>';
 
 $hddtotal = disk_total_space("/");
 $hddfree = disk_free_space("/");
-$hddmath = $hddfree / $hddtotal * 100;
-$hdd = round($hddmath) . '%';
+$hddused = $hddtotal - $hddfree;
+$hddpercent = $hddused / $hddtotal * 100;
 
-if ($hdd >= "51%") { $hddlevel = "success"; }
-elseif ($hdd <= "50%") { $hddlevel = "warning"; }
-elseif ($hdd <= "35%") { $hddlevel = "danger"; }
-
+if ($hddpercent >= "75") { $hddlevel = "success"; }
+elseif ($hddpercent >= "36") { $hddlevel = "warning"; }
+elseif ($hddpercent <= "35") { $hddlevel = "danger"; }
 
 $array['hdd'] = '<div class="progress progress-striped active">
-<div class="bar bar-'.$hddlevel.'" style="width: '.$hdd.';">'.$hdd.'</div>
+<div class="bar bar-'.$hddlevel.'" style="width:'.$hddpercent.'%;">'.round($hddused*0.000000000098,2).'&nbsp;gb</div>
 </div>';
 
 $load = sys_getloadavg();

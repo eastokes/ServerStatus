@@ -3,6 +3,7 @@ body { background: #ebebeb url('../img/bg.png'); }
 .table { background: #ffffff; margin-bottom: 0; border-collapse: collapse; border-radius: 3px; }
 .table th, .table td { text-align: center; }
 .progress { margin-bottom: 0; }
+.progress .bar { color: #000; text-shadow: none; }
 #ram, #hdd { min-width: 35px; max-width: 100px; }
 @media only screen and (max-width: 768px) {
 	#host, tr td:nth-child(4)			{ display:none; visibility:hidden; }

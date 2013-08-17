@@ -23,7 +23,7 @@ while($result = mysql_fetch_array($query)){
 					<div class="bar bar-danger" style="width: 100%;"><small>Down</small></div>
 				</div>
 			</td>
-			<td>'.$result["name"].'</td>
+			<td><a href="'.$result["link"].'">'.$result["name"].'</a></td>
 			<td>'.$result["type"].'</td>
 			<td>'.$result["host"].'</td>
 			<td>'.$result["location"].'</td>
